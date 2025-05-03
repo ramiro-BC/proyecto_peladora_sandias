@@ -134,8 +134,16 @@ class Secunecia():
             if self.electronica:
                 self.electronica.y[1]=self.y1
                 self.electronica.y[2]=self.y2
+                self.electronica.y[3]=self.y3
+                self.electronica.y[4]=self.y4
+                self.electronica.y[5]=self.y5
+                self.electronica.y[6]=self.y6
+                self.electronica.y[7]=self.y7
+                self.electronica.y[8]=self.y8
+                
+
                 #el valor almacenado en  self.motor se ira al pinaperado de la raspberry en y[3] m
-                self.electronica.y[3]=self.motor 
+                self.electronica.y[9]=self.motor 
 
                 # enlazar botones fisicos
                 #el valor que entre en el mapeo del pin de la raspbery se almacena en 

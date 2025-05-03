@@ -13,13 +13,20 @@ class Electronica():
         self.DO_00=17
         self.DO_01=27
         self.DO_02=22
+        self.DO_03=5
+        self.DO_04=6
+        self.DO_05=13
+        self.DO_06=19
+        self.DO_07=26
+        self.DO_08=16
+        self.DO_09=20
         #entrads
         self.x=[]
         for i in range (10):
             self.x.append(False)
         #salidas
         self.y=[]
-        for i in range (10):
+        for i in range (20):
             self.y.append(False)
         #memorias
         self.M=[]
@@ -47,6 +54,13 @@ class Electronica():
                 self.DO_00:gpiod.LineSettings(direction=Direction.OUTPUT, output_value=Value.INACTIVE ),
                 self.DO_01:gpiod.LineSettings(direction=Direction.OUTPUT, output_value=Value.INACTIVE ),
                 self.DO_02:gpiod.LineSettings(direction=Direction.OUTPUT, output_value=Value.INACTIVE ),
+                self.DO_03:gpiod.LineSettings(direction=Direction.OUTPUT, output_value=Value.INACTIVE ),
+                self.DO_04:gpiod.LineSettings(direction=Direction.OUTPUT, output_value=Value.INACTIVE ),
+                self.DO_05:gpiod.LineSettings(direction=Direction.OUTPUT, output_value=Value.INACTIVE ),
+                self.DO_06:gpiod.LineSettings(direction=Direction.OUTPUT, output_value=Value.INACTIVE ),
+                self.DO_07:gpiod.LineSettings(direction=Direction.OUTPUT, output_value=Value.INACTIVE ),
+                self.DO_08:gpiod.LineSettings(direction=Direction.OUTPUT, output_value=Value.INACTIVE ),
+                self.DO_09:gpiod.Linesettings(direction=Direction.OUTPUT, output_value=Value.INACTIVE ),
             }
         )
     def iniciar(self):
@@ -58,8 +72,18 @@ class Electronica():
             self.x[2]=True if self.request.get_value(self.DI_01)==Value.ACTIVE else False
             
             self.request.set_value(self.DO_00,Value.ACTIVE if self.y[3]==True else Value.INACTIVE)
-            self.request.set_value(self.DO_01,Value.ACTIVE if self.y[2]==True else Value.INACTIVE)
+            self.request.set_value(self.DO_01,Value.ACTIVE if self.y[5]==True else Value.INACTIVE)
             self.request.set_value(self.DO_02,Value.ACTIVE if self.y[1]==True else Value.INACTIVE)
+            self.request.set_value(self.DO_03,Value.ACTIVE if self.y[7]==True else Value.INACTIVE)
+            self.request.set_value(self.DO_04,Value.ACTIVE if self.y[4]==True else Value.INACTIVE)
+            self.request.set_value(self.DO_05,Value.ACTIVE if self.y[6]==True else Value.INACTIVE)
+            self.request.set_value(self.DO_06,Value.ACTIVE if self.y[2]==True else Value.INACTIVE)
+            self.request.set_value(self.DO_07,Value.ACTIVE if self.y[8]==True else Value.INACTIVE)
+
+            #Motor
+            self.request.set_value(self.DO_08,Value.ACTIVE if self.y[9]==True else Value.INACTIVE)
+        
+
             time.sleep(0.01)
         
 
