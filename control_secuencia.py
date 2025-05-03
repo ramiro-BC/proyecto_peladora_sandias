@@ -142,7 +142,7 @@ class Secunecia():
                 self.electronica.y[8]=self.y8
                 
 
-                #el valor almacenado en  self.motor se ira al pinaperado de la raspberry en y[3] m
+                #el valor almacenado en  self.motor se ira al pinaperado de la raspberry en y[9] m
                 self.electronica.y[9]=self.motor 
 
                 # enlazar botones fisicos
